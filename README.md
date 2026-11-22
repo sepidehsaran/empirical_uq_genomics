@@ -14,7 +14,7 @@ method is tested against one source of uncertainty at a time (label noise, missi
 sequence motifs, class imbalance, out-of-distribution data), and the uncertainty scores
 are then used to filter predictions on a 27-class RBP task.
 
-## What is in this repository
+## Repository structure
 
 ```
 src/uq_genomics/
@@ -38,7 +38,7 @@ config/                 config.example.ini for retraining
 docs/REPRODUCING.md     figure-by-figure map, data layout, environment variables
 ```
 
-Three things can be done with it, in increasing order of effort:
+This repository can be used for the following purposes:
 
 | | needs | time |
 |---|---|---|
@@ -46,7 +46,6 @@ Three things can be done with it, in increasing order of effort:
 | **Rerun the analyses** on your own model outputs | + your prediction files | minutes |
 | **Retrain the models** from scratch | + TensorFlow 2.16 and a GPU | days |
 
-Most readers want the first. It needs no GPU and no TensorFlow.
 
 ## Data
 
