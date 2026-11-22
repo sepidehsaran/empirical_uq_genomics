@@ -11,7 +11,7 @@
 
 # Leave-donor-out on the single-cell data: train MCD / BNN / ENS on 12 samples (balanced),
 # test on the held-out sample; one array task = one (model, fold). Data from
-# scripts/data/build_leave_donor_out.py, rsynced to $DATASETS.
+# scripts/splits/build_leave_donor_out.py, rsynced to $DATASETS.
 #
 #   mkdir -p logs && sbatch scripts/training/run_train_leave_donor_out.sbatch
 # Index = seed_idx*3 + model_idx (models mcd, bnn, ens; seeds 7 5 11 6 9).

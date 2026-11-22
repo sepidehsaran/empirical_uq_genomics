@@ -13,7 +13,7 @@
 # (the 50% setting is the existing tf_mislabeled run, results_v20). Same protocol as
 # run_train_perturbed.sbatch; one array task = one (fraction, model, seed).
 #
-#   python3 scripts/data/build_label_noise_sweep.py --datasets $D/datasets --out $D/datasets_v2
+#   python3 scripts/splits/build_label_noise_sweep.py --datasets $D/datasets --out $D/datasets_v2
 #   mkdir -p logs && sbatch scripts/training/run_train_label_noise_sweep.sbatch
 # Index = seed_idx*6 + frac_idx*3 + model_idx (fractions 15 30; models mcd bnn ens; seeds 7 5 11 6 9).
 

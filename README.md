@@ -22,7 +22,7 @@ src/uq_genomics/
   figures/              every figure and table of the paper, from released data (no TensorFlow)
 notebooks/              one notebook per figure group, 00-07
 scripts/                one directory per experiment
-  data/                 dataset splits: perturbed settings, label-noise sweep, leave-donor-out, 27-class task
+  splits/               dataset splits: perturbed settings, label-noise sweep, leave-donor-out, 27-class task
   training/             the training protocol and its SLURM wrappers, one per experiment
   mcd_inference/        MC-dropout inference with dropout active; placement/rate ablation (Table S2)
   sensitivity/          cross-seed shift tables, paired tests, KS correction, label-noise sweep (Tables S3-S5, S12)
@@ -154,4 +154,5 @@ Machine-readable metadata is in `CITATION.cff`.
 
 ## License
 
-MIT — see `LICENSE`.
+Code: MIT (see `LICENSE`). Released data and models: CC BY 4.0 (Zenodo record, DOI to follow).
+The paper itself is published by TMLR under CC BY 4.0.

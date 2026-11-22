@@ -98,7 +98,7 @@ def read_splitted_dataset(config, print_plot_imbalance=True):
             dataset_setting_name = dataset_setting_name + 'no_noise/'
         elif noise.startswith('mislabeled'):
             # 'mislabeled' = half of JUN/MEF2A swapped; 'mislabeled15' / 'mislabeled30' = 15% / 30%
-            # (datasets from scripts/data/build_label_noise_sweep.py)
+            # (datasets from scripts/splits/build_label_noise_sweep.py)
             dataset_setting_name = dataset_setting_name + 'train_' + noise + '_test_clean/'
         else:
             dataset_setting_name = dataset_setting_name + 'no_motif/'

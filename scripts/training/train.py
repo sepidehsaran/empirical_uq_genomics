@@ -44,7 +44,7 @@ SETTINGS = {
     "tf_clean":         dict(classification_task="tf",  data_type_species="simulated_human", n_classes="6", balanced_dataset="True",  multi_label="False", noise="none"),
     "rbp_bal_single":   dict(classification_task="rbp", data_type_species="real_human",      n_classes="3", balanced_dataset="True",  multi_label="False", noise="none"),
     "rbp_bal_multi":    dict(classification_task="rbp", data_type_species="real_human",      n_classes="3", balanced_dataset="True",  multi_label="True",  noise="none"),
-    # 27-class application dataset, placed by scripts/data/prep_rbp27_dataset.py under
+    # 27-class application dataset, placed by scripts/splits/prep_rbp27_dataset.py under
     # rbp/real_human/train_imbalanced_test_balanced/single_label/27class_split<seed>.pickle
     "rbp_app27":        dict(classification_task="rbp", data_type_species="real_human",      n_classes="27", balanced_dataset="False", multi_label="False", noise="none"),
 }

@@ -14,7 +14,7 @@
 # filter of Section 4.4 can be run for all three methods. One task per model; the BNN (index 2,
 # full-batch, 1000 steps) is the slow one:  sbatch --array=2 scripts/training/run_train_rbp27.sbatch
 #
-#   python3 scripts/data/prep_rbp27_dataset.py --src <app27 pickle> --datasets $UQ_DATA/datasets_v2 --seed 9
+#   python3 scripts/splits/prep_rbp27_dataset.py --src <app27 pickle> --datasets $UQ_DATA/datasets_v2 --seed 9
 #   mkdir -p logs && sbatch scripts/training/run_train_rbp27.sbatch
 
 set -euo pipefail

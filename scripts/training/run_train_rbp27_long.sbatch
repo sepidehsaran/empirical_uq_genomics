@@ -14,7 +14,7 @@
 # the step cap. Same dataset file for both seeds (the split is fixed; the seed changes the
 # initialization). Writes version 24 under models_v24 / results_v24.
 #
-#   python3 scripts/data/prep_rbp27_dataset.py --src <app27 pickle> --datasets $UQ_DATA/datasets_v2 --seed 3
+#   python3 scripts/splits/prep_rbp27_dataset.py --src <app27 pickle> --datasets $UQ_DATA/datasets_v2 --seed 3
 #   mkdir -p logs && sbatch scripts/training/run_train_rbp27_long.sbatch
 
 set -euo pipefail

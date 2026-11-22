@@ -147,7 +147,7 @@ the most uncertain one. Notebook 01 prints both tables.
 Every perturbed setting (TF mislabeled, RBP imbalanced, single-cell imbalanced) is
 evaluated on the test set of its reference setting, which is held out before the
 perturbed training and validation sets are drawn
-(`scripts/data/build_perturbed_splits.py`). The RBP balanced and imbalanced
+(`scripts/splits/build_perturbed_splits.py`). The RBP balanced and imbalanced
 settings therefore share one 574-sequence test set and the single-cell settings one
 3,600-cell test set, so the shift of a class's uncertainty distribution between
 settings reflects the training set only.
@@ -305,8 +305,8 @@ The `*.sbatch` files are written for a SLURM cluster; the partition, time and me
 lines at their top and the `UQ_DATA` / `UQ_MODELS` / `UQ_RESULTS` variables are the
 only site-specific parts.
 
-The perturbed splits with held-out test sets come from `scripts/data/build_perturbed_splits.py`, the
-leave-donor-out folds from `scripts/data/build_leave_donor_out.py` and the
-label-noise sweep splits from `scripts/data/build_label_noise_sweep.py`.
-`scripts/data/audit_splits.py` checks every split for leakage between train,
+The perturbed splits with held-out test sets come from `scripts/splits/build_perturbed_splits.py`, the
+leave-donor-out folds from `scripts/splits/build_leave_donor_out.py` and the
+label-noise sweep splits from `scripts/splits/build_label_noise_sweep.py`.
+`scripts/splits/audit_splits.py` checks every split for leakage between train,
 validation and test.
