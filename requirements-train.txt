@@ -1,0 +1,24 @@
+# Everything needed to retrain the models from scratch. Requires Python 3.10.
+#
+#   python3.10 -m venv .venv && source .venv/bin/activate
+#   pip install --upgrade pip
+#   pip install -r requirements-train.txt                                  # CPU only
+#   pip install -r requirements-train.txt "tensorflow[and-cuda]==2.16.1"   # with GPU
+#
+# The GPU extra pulls CUDA and cuDNN in as nvidia-* wheels, so no system CUDA module is
+# needed. scripts/training/activate_env.sh puts those wheel directories on LD_LIBRARY_PATH.
+#
+# tf-keras is required: tensorflow-probability has not been ported to Keras 3, which is
+# the default in TensorFlow 2.16, so TFP layers need the legacy Keras package present.
+-r requirements-figures.txt
+
+tensorflow==2.16.1
+tensorflow-probability==0.24.0
+tf-keras==2.16.0
+
+# explainability (Section on XAI and the TF simulation strategy)
+logomaker==0.8
+shap==0.45.1
+
+# optional experiment tracking; all code paths run without it
+neptune==1.10.4

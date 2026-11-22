@@ -1,0 +1,13 @@
+# Minimal environment: regenerate every figure in the paper from the released data
+# bundle. No TensorFlow, no GPU, installs in well under a minute.
+#
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements-figures.txt
+#
+# Use requirements-train.txt only if you intend to retrain models.
+numpy>=1.24,<2.0
+scipy>=1.10
+pandas>=2.0
+scikit-learn>=1.3
+matplotlib>=3.7
+seaborn>=0.13

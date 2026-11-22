@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: >-
+  Uncertainty-Aware Deep Learning for Genomics Applications:
+  Insights from an Empirical Study
+message: If you use this software, please cite the paper below.
+type: software
+authors:
+  - family-names: Saran
+    given-names: Sepideh
+    affiliation: >-
+      The Berlin Institute for Medical Systems Biology, Max Delbrück Center for
+      Molecular Medicine; Technical University of Berlin
+  - family-names: Ghanbari
+    given-names: Mahsa
+    affiliation: >-
+      The Berlin Institute for Medical Systems Biology, Max Delbrück Center for
+      Molecular Medicine; Humboldt University of Berlin
+  - family-names: Ohler
+    given-names: Uwe
+    affiliation: >-
+      The Berlin Institute for Medical Systems Biology, Max Delbrück Center for
+      Molecular Medicine; Humboldt University of Berlin
+repository-code: "https://github.com/sepidehsaran/empirical_uq_genomics"
+license: MIT
+version: 1.0.0
+preferred-citation:
+  type: article
+  title: >-
+    Uncertainty-Aware Deep Learning for Genomics Applications:
+    Insights from an Empirical Study
+  authors:
+    - family-names: Saran
+      given-names: Sepideh
+    - family-names: Ghanbari
+      given-names: Mahsa
+    - family-names: Ohler
+      given-names: Uwe
+  journal: Transactions on Machine Learning Research
+  year: 2026
+  url: "https://openreview.net/forum?id=YL7aleiVvY"

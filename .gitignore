@@ -1,0 +1,44 @@
+# Local configuration. config.example.ini is tracked; config.ini is not, so that
+# credentials and machine-specific paths can never be committed by accident.
+config/config.ini
+config/local_config.ini
+
+# Never commit credentials
+.env
+*.token
+
+# Data and model artifacts are released separately (see docs/REPRODUCING.md), not
+# through git. The bundle is ~22 MB, raw predictions are several hundred MB.
+figure_data_bundle/
+cluster_preds/
+data/
+models/
+results/
+*.pickle
+*.pkl
+*.pkl.gz
+*.h5
+*.keras
+*.h5ad
+
+# Figure output
+out/
+runs/
+
+# Experiment tracking
+.neptune/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
