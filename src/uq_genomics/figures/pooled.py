@@ -111,9 +111,17 @@ def predclass_source_rbp(model, _seed, preds=None):
 # ----------------------------------------------------------------------------------
 # builders: one per paper figure (or figure pair)
 # ----------------------------------------------------------------------------------
-def build_tf(out, log2=True, aspect=0.95, letters=(None, None)):
-    """TF label noise (Fig. 9) and TF missing motif (supplement), all-sample score.
-    Writes SDSHIFT_tf_mislabeled_pooled_{log2|raw}.pdf and SDSHIFT_tf_no_motif_pooled_*."""
+def build_tf(out, log2=True, aspect=None, letters=None):
+    """TF label noise (Fig. 9) and TF missing motif (Fig. S8), all-sample score.
+    Writes SDSHIFT_tf_mislabeled_pooled_{log2|raw}.pdf and SDSHIFT_tf_no_motif_pooled_*.
+
+    The log2 figures each fill a float of their own (aspect 0.95, no panel letter). The two
+    raw-scale figures share one float as panels a) and b) (Fig. S9), so they are drawn flatter
+    (aspect 0.60: 3.9 in tall, two of them fit a 9 in text height at full width)."""
+    if aspect is None:
+        aspect = 0.95 if log2 else 0.60
+    if letters is None:
+        letters = (None, None) if log2 else ("a", "b")
     os.makedirs(out, exist_ok=True)
     SDS.build("tf", "none", "mislabeled", "tf_mislabeled_pooled", out, log2, letters[0], aspect,
               sd_source=pooled_source("tf", "none", "mislabeled"))
