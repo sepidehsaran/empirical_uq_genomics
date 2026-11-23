@@ -20,9 +20,13 @@ authors:
     affiliation: >-
       The Berlin Institute for Medical Systems Biology, Max Delbrück Center for
       Molecular Medicine; Humboldt University of Berlin
-repository-code: "https://github.com/sepidehsaran/empirical_uq_genomics"
+repository-code: "https://github.com/ohlerlab/empirical_uq_genomics"
 license: MIT
 version: 1.0.0
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24450552
+    description: Released data, predictions and trained models (Zenodo)
 preferred-citation:
   type: article
   title: >-

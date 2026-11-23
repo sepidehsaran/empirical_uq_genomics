@@ -49,24 +49,24 @@ This repository can be used for the following purposes:
 
 ## Data
 
-The model outputs are released separately from the code because of their size:
+The model outputs, datasets and trained models are released on Zenodo:
+**https://doi.org/10.5281/zenodo.24450552** (CC BY 4.0).
 
-| Artifact | Size | Needed for |
+| Archive | Size | Needed for |
 |---|---|---|
-| `figure_data_bundle/` | ~22 MB | every figure except the two below |
-| `cluster_preds/` | ~725 MB | Fig. 10a, Fig. 12, Fig. S7 and several supplement tables |
-| input datasets | several GB | retraining only |
+| `figure_data_bundle.tar.gz` | 27 MB | every notebook figure except the two below |
+| `raw_predictions.tar.gz` | 2.0 GB | Fig. 10a, Fig. 12, Fig. S7 and the supplement tables |
+| `datasets.tar.gz` | 181 MB | retraining; split audit; Fig. S12 |
+| `models.tar.gz`, `models_rbp27_bnn.tar.gz` | 1.8 GB | attribution figures (S2, S4, S5), MC-dropout ablation, reuse of the models |
 
-Download: [data bundles](https://zenodo.org/records/24450552)
-
-Unpack `figure_data_bundle/` and, if you want the raw-prediction figures,
-`cluster_preds/` into the repository root. Other locations work through the
-`UQFIG_BUNDLE` and `UQFIG_PREDS` environment variables.
+`scripts/download_data.sh` fetches the bundle (default), `--preds` adds the raw
+predictions, `--all` everything, and unpacks each where the notebooks expect it.
+Other locations work through the `UQFIG_BUNDLE` and `UQFIG_PREDS` environment variables.
 
 ## Installation
 
 ```bash
-git clone https://github.com/sepidehsaran/empirical_uq_genomics.git
+git clone https://github.com/ohlerlab/empirical_uq_genomics.git
 cd empirical_uq_genomics
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements-figures.txt      # numpy, scipy, pandas, scikit-learn, matplotlib, seaborn
@@ -86,7 +86,7 @@ docker run --rm -v "$PWD/figure_data_bundle:/data:ro" -v "$PWD/cluster_preds:/pr
 
 ## Regenerating the results, step by step
 
-1. **Install** as above and download the data into the repository root.
+1. **Install** as above, then `./scripts/download_data.sh` (add `--preds` for the two raw-prediction figures).
 
 2. **Check the environment.** Open `notebooks/00_check_environment.ipynb` (or run
    `PYTHONPATH=src python -c "from uq_genomics.figures import config_paths as C; [print(*r) for r in C.report()]"`).
@@ -153,5 +153,5 @@ Machine-readable metadata is in `CITATION.cff`.
 
 ## License
 
-Code: MIT (see `LICENSE`). Released data and models: CC BY 4.0 (Zenodo record: 10.5281/zenodo.24450552).
+Code: MIT (see `LICENSE`). Released data and models: CC BY 4.0 ([Zenodo, doi:10.5281/zenodo.24450552](https://doi.org/10.5281/zenodo.24450552)).
 The paper itself is published by TMLR under CC BY 4.0.

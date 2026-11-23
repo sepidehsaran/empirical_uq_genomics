@@ -4,9 +4,9 @@ log2 SD from the clean setting for the swapped classes and for the four untouche
 mean over five seeds (seeds with a positive shift), over all test samples (the reading of
 Figure 9 and Table S3).
 
-Inputs: clean and 50% passes from the merged_v20 tree (the bundle's), 15% / 30% runs from results_v22.
+Inputs: clean and 50% passes from the released cluster_preds/ tree (tf_v18/, the bundle's), 15% / 30% runs from results_v22.
 
-    python3 scripts/sensitivity/label_noise_sweep.py --clean cluster_preds/merged_v20 \
+    python3 scripts/sensitivity/label_noise_sweep.py --clean cluster_preds \
         --v22 cluster_preds/results_v22 \
         --out out/tables
 """
@@ -39,7 +39,7 @@ def med_log2(sd, c):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--clean", required=True, help="merged_v20 tree (clean TF passes under tf_v18/.../no_noise)")
+    ap.add_argument("--clean", required=True, help="released cluster_preds/ tree (clean TF passes under tf_v18/.../no_noise)")
     ap.add_argument("--v22", required=True, help="results_v22 tree (15% and 30%)")
     ap.add_argument("--datasets", default="datasets", help="clean TF splits, for the test labels")
     ap.add_argument("--out", required=True)

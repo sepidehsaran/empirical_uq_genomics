@@ -7,8 +7,9 @@ For T passes with class probabilities p_t:
 
 Runs on every <task>/<setting>/<split>/iter_preds_<model>_*.pickle found under UQFIG_PREDS:
     rbp_v19/{balanced,train_imbalanced_test_balanced}/3class_split<seed>/
-    tf_v18/{...}/6class_split<seed>/      (once copied off the cluster)
-    gex_v19/{...}/4class_split<seed>/
+    tf_v18/balanced/single_label/{no_noise,train_mislabeled_test_clean}/6class_split<seed>/
+    gex_v19/{balanced,train_imbalanced_test_balanced}/single_label/4class_split<seed>/
+(all three trees are in the released raw_predictions archive, under cluster_preds/)
 BNN outputs are logits (softmax applied per pass); MCD and ENS already carry softmax. For
 multi-label (sigmoid) runs the per-class Bernoulli entropy is summed instead.
 

@@ -62,16 +62,17 @@ wrapper in the same directory; all of them source `scripts/training/activate_env
 
 ## Getting the data
 
-Three artifacts are released separately from the code because of their size. Place
-them (or point the environment variables at them) as follows.
+Everything the code reads is on Zenodo, doi:[10.5281/zenodo.24450552](https://doi.org/10.5281/zenodo.24450552),
+as five archives. `scripts/download_data.sh` fetches and unpacks them; the table says
+where each one lands and which variable points at it.
 
-| Artifact | Size | Location | Variable | Needed for |
+| Archive | Size | Unpacks to | Variable | Needed for |
 |---|---|---|---|---|
-| `figure_data_bundle/` | ~22 MB | repo root | `UQFIG_BUNDLE` | every notebook |
-| `cluster_preds/` | ~725 MB | repo root | `UQFIG_PREDS` | notebook 06; Fig. 10a; several supplement tables |
-| input datasets | several GB | anywhere | `UQFIG_PATH_DATASETS_SEQ`, `UQFIG_PATH_DATASETS_GEX` | retraining; Fig. S12 |
-
-Download link: see the **Data** section of the README.
+| `figure_data_bundle.tar.gz` | 27 MB | `figure_data_bundle/` | `UQFIG_BUNDLE` | every notebook |
+| `raw_predictions.tar.gz` | 2.0 GB | `cluster_preds/`, `results_*/`, `inference_v20/` | `UQFIG_PREDS` | notebook 06; Fig. 10a; supplement table scripts |
+| `datasets.tar.gz` | 181 MB | `datasets_release/` | `UQFIG_PATH_DATASETS_SEQ`, `UQFIG_PATH_DATASETS_GEX` | retraining; Fig. S12; split audit |
+| `models.tar.gz` | 1.8 GB | `models_release/` | `UQFIG_MODELS_ROOT_*` | attribution figures; MC-dropout ablation |
+| `models_rbp27_bnn.tar.gz` | 1.5 MB | `models_release/` | – | the 27-class BNN of Fig. 12 |
 
 The bundle holds, per (task, setting, seed, method), the predictive mean and standard
 deviation on the test set, the test labels, the class counts of every split, the
@@ -79,9 +80,23 @@ coronavirus inference, the 27-class predictions and the two cached UMAP coordina
 (`_full_xumap_labels.pkl`, `umap_liam_4_cell_types_coords.pkl`).
 
 `cluster_preds/` holds the raw `(n_iter, n_samples, n_classes)` arrays:
-`iter_preds_bnn_v_10_s_9.pickle` (27-class task, shape `(1000, 6785, 27)`) and
-`rbp_v19/<setting>/3class_split<seed>/iter_preds_<method>_*.pickle` (RBP balanced and
-imbalanced training, both evaluated on the shared balanced test set).
+`iter_preds_bnn_v_10_s_9.pickle` (27-class task, shape `(1000, 6785, 27)`) and, per
+task, the passes behind every entry of the bundle's comparison section:
+
+| tree | settings | used by |
+|---|---|---|
+| `rbp_v19/{balanced,train_imbalanced_test_balanced}[_multi]/3class_split<seed>/` | RBP, both evaluated on the shared balanced test set | Fig. 10a, Tables S3, S4, S11 |
+| `tf_v18/balanced/single_label/{no_noise,train_mislabeled_test_clean}/6class_split<seed>/` | simulated TF, clean and 50 % mislabeled | Tables S4, S11, S12 |
+| `gex_v19/{balanced,train_imbalanced_test_balanced}/single_label/4class_split<seed>/` | single-cell, balanced and imbalanced | Tables S4, S11 |
+
+These are the `results_v20` runs (the retraining with held-out test sets, Section S1.1.3 of
+the paper) renamed into the layout the scripts read; `scripts/bundle/make_bundle.py` writes
+this tree alongside the bundle. BNN files hold logits, MCD and ENS files probabilities.
+MC-dropout passes were run with dropout active in all layers at the training rate (Table S2,
+"all layers, 0.25"); their median SD at the predicted class is about `1e-5` on the RBP data
+and `1e-3` on the TF data. Passes with dropout in the last layer only, the configuration of
+the first submission, have medians two orders of magnitude smaller and many exactly-zero
+SDs, and are not part of the release.
 
 ### Rebuilding the bundle after retraining
 

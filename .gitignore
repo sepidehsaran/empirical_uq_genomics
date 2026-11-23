@@ -42,3 +42,10 @@ dist/
 .idea/
 .vscode/
 .DS_Store
+
+# released data unpacked by scripts/download_data.sh
+.zenodo/
+results_*/
+inference_v20/
+datasets_release/
+models_release/
