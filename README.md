@@ -14,7 +14,7 @@ method is tested against one source of uncertainty at a time (label noise, missi
 sequence motifs, class imbalance, out-of-distribution data), and the uncertainty scores
 are then used to filter predictions on a 27-class RBP task.
 
-## Repository structure
+## Repository structure:
 
 ```
 src/uq_genomics/
@@ -57,7 +57,7 @@ The model outputs are released separately from the code because of their size:
 | `cluster_preds/` | ~725 MB | Fig. 10a, Fig. 12, Fig. S7 and several supplement tables |
 | input datasets | several GB | retraining only |
 
-Download: **DATA-URL**
+Download: 10.5281/zenodo.24450552
 
 Unpack `figure_data_bundle/` and, if you want the raw-prediction figures,
 `cluster_preds/` into the repository root. Other locations work through the
@@ -140,7 +140,7 @@ this repository.
 ## Citation
 
 ```bibtex
-@article{saran2026uncertainty,
+@article{saran2026uq,
   title   = {Uncertainty-Aware Deep Learning for Genomics Applications: Insights from an Empirical Study},
   author  = {Saran, Sepideh and Ghanbari, Mahsa and Ohler, Uwe},
   journal = {Transactions on Machine Learning Research},
@@ -153,5 +153,5 @@ Machine-readable metadata is in `CITATION.cff`.
 
 ## License
 
-Code: MIT (see `LICENSE`). Released data and models: CC BY 4.0 (Zenodo record, DOI to follow).
+Code: MIT (see `LICENSE`). Released data and models: CC BY 4.0 (Zenodo record: 10.5281/zenodo.24450552).
 The paper itself is published by TMLR under CC BY 4.0.
