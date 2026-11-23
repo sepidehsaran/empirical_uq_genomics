@@ -146,8 +146,10 @@ def build(task, ref, alt, stem, out, log2, letter, aspect, seed=None, balance_te
     # room at the bottom for the legend + x label, at the top for the panel letter.
     # The left margin now has to hold a horizontal row label, so it scales with the
     # longest line rather than being fixed at the width of a rotated one.
-    widest = max(len(ln) for lab in row_labels for ln in lab.split("\n"))
-    L = min(0.105 + 0.0092 * widest, 0.20)
+    # One left margin for every sensitivity figure, sized for the longest row label of
+    # any use case ("Erythroblast"), so that the panel grids of the RBP and single-cell
+    # figures line up when they are stacked as a) and b).
+    L = 0.20
     R, T, B, hgap, vgap = 0.988, 0.905, 0.205, 0.055, 0.030
     if letter is None:
         T = 0.945          # no letter to leave room for
