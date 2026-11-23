@@ -57,7 +57,7 @@ The model outputs are released separately from the code because of their size:
 | `cluster_preds/` | ~725 MB | Fig. 10a, Fig. 12, Fig. S7 and several supplement tables |
 | input datasets | several GB | retraining only |
 
-Download: 10.5281/zenodo.24450552
+Download: [data bundles](10.5281/zenodo.24450552)
 
 Unpack `figure_data_bundle/` and, if you want the raw-prediction figures,
 `cluster_preds/` into the repository root. Other locations work through the
